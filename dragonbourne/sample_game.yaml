@@ -1,0 +1,56 @@
+---
+player:
+    alliance: good
+    backpack:
+        - sword
+        - food
+        - emerald
+    equipped:
+        - sword
+    actions:
+        -
+    modifiers:
+        under_spell:
+
+characters:
+    monster_1:
+        alliance: bad
+        backpack:
+            - sword
+            - food
+        attributes:
+            -
+        actions:
+
+items:
+    weapon:
+        sword:
+            description: Sharp, pointed object forged from steel.
+            conditions:
+                - $player.level > 10
+            use:
+                conditions:
+                    - player.current.enemy
+                target: player.current.enemy.health
+                amount:
+                    randint: -2,-10
+            actions:
+                defend:
+        axe:
+            conditions:
+                - $player.level > 10
+            description: Sharp axe
+            use:
+        longbow:
+            conditions:
+                - $player.level > 10
+            description: Typical long bow
+        stick:
+            conditions:
+                - $self in $player.backpack
+            description: Flimsy piece of wood
+    wearable:
+        tunic:
+            description: Lightweight, article of clothing.
+            use:
+
